@@ -76,7 +76,7 @@ class PluginDocs < Clamp::Command
         # write the doc
         File.write(output_asciidoc, content)
         puts "#{plugin.canonical_name}@#{plugin.tag}: #{release_date}\n"
-      end
+      end unless released_plugin.only_publish_default? && !is_default_plugin
     end
   end
 
